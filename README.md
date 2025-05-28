@@ -1,1 +1,3 @@
-permalink: /template.html
+-
+permalink: /index.html
+-
