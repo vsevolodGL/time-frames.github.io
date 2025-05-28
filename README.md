@@ -1,1 +1,1 @@
-# time-frames.github.io
+permalink: /index.html
