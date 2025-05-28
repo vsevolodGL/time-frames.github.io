@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Кадры Времени</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Верхняя полоска */
+        .top-bar {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        /* Контейнер для всех блоков content */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 столбца одинаковой ширины */
+            gap: 20px; /* расстояние между блоками по горизонтали и вертикали */
+            padding: 20px;
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto; /* центрируем контейнер */
+            box-sizing: border-box;
+        }
+
+        /* Отдельные блоки контента */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background-color: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Стили для кнопки "Фотографии" */
+        .photo-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #337ab7;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .photo-button:hover {
+            background-color: #23527c;
+        }
+
+        /* Стили для картинки над кнопкой */
+        .photo-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        /* Нижняя полоска (футер) */
+        .bottom-bar {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Адаптив для мобильных */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr; /* В один столбец на узких экранах */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        Кадры Времени
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content">
+            <img src="others/Vam_i_ne_snilos_poster.jpg" alt="Фото" class="photo-image" />
+            <a href="others/vam_i_ne_snilos.html" class="photo-button">Фотографии</a>
+        </div>
+
+        <div class="content">
+            <img src="others/Journy.jpg" alt="Фото" class="photo-image" />
+            <a href="others/journy.html" class="photo-button">Фотографии</a>
+        </div>
+
+        <div class="content">
+            <img src="others/Osen_poster.jpg" alt="Фото" class="photo-image" />
+            <a href="others/osen.html" class="photo-button">Фотографии</a>
+        </div>
+
+        <div class="content">
+            <img src="others/Street_poster.jpg" alt="Фото" class="photo-image" />
+            <a href="others/street.html" class="photo-button">Фотографии</a>
+        </div>
+
+        <div class="content">
+            <img src="others/Gold.jpg" alt="Фото" class="photo-image" />
+            <a href="others/gold.html" class="photo-button">Фотографии</a>
+        </div>
+    </div>
+
+    <div class="bottom-bar">
+        2025 Кадры Времени
+    </div>
+
+</body>
+</html>
