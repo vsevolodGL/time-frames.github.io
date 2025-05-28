@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Приключения итальянцев (1973)</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Верхняя полоска */
+.top-bar {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.top-bar a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.container {
+  position: relative;
+  width: 800px; /* или любая другая ширина */
+  height: 400px; /* или любая другая высота */
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.image1, .image2 {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.small-light {
+    font-size: 1rem;        /* уменьшенный размер шрифта */
+    font-weight: 300;       /* нежирный (light) */
+    font-family: Arial, sans-serif; /* или любой другой шрифт */
+}
+
+.image1 {
+  left: 0;
+  clip-path: inset(0 100% 0 0);
+}
+
+.image2 {
+  right: 0;
+  clip-path: inset(0 0 0 0);
+}
+
+.separator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 5px;
+  background-color: #ddd;
+  cursor: ew-resize;
+  z-index: 2;
+  user-select: none;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Добавляем отступ между контейнерами */
+.container:not(:last-child) {
+  margin-upper: 40px;
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="../template.html">Назад</a>
+</div>
+
+<h1>Невероятные приключения итальянцев в России (1973)</h1>
+
+<div class="container" id="container1">
+  <img src="09-Old.png" alt="Image 1" class="image1">
+  <img src="09-New.png" alt="Image 2" class="image2">
+  <div class="separator" id="separator1"></div>
+</div>
+
+<h1 class="small-light">Строка 1</h1>
+
+<div class="container" id="container2">
+  <img src="08-Old.png" alt="Image 1" class="image1">
+  <img src="08-New.png" alt="Image 2" class="image2">
+  <div class="separator" id="separator2"></div>
+</div>
+
+<h1 class="small-light">Строка 2</h1>
+
+<script>
+function makeImageSeparator(containerId, separatorId) {
+  const container = document.getElementById(containerId);
+  const image1 = container.querySelector('.image1');
+  const image2 = container.querySelector('.image2');
+  const separator = document.getElementById(separatorId);
+
+  let isDragging = false;
+  const margin = 50;
+
+  separator.style.left = (container.offsetWidth / 2) + 'px';
+  image1.style.clipPath = `inset(0 50% 0 0)`;
+  image2.style.clipPath = `inset(0 0 0 50%)`;
+
+  separator.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    e.preventDefault();
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    let x = e.clientX - container.offsetLeft;
+
+    x = Math.max(margin, Math.min(x, container.offsetWidth - margin));
+
+    separator.style.left = x + 'px';
+
+    const percentage = (x / container.offsetWidth) * 100;
+
+    image1.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+    image2.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+  });
+
+  document.addEventListener('mouseleave', () => {
+    isDragging = false;
+  });
+}
+
+// Инициализируем разделители для каждого контейнера
+makeImageSeparator('container1', 'separator1');
+makeImageSeparator('container2', 'separator2');
+</script>
+</body>
+</html>
