@@ -17,11 +17,44 @@ body {
 }
 
 .bottom-bar {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.bottom-bar {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.bottom-bar a {
+    display: inline-block;
+    background: linear-gradient(45deg, #f9f9b7, #fafad2); /* чуть ярче и насыщеннее */
+    color: #6b573f; /* чуть темнее для контраста */
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    box-shadow: 0 4px 15px rgba(200, 190, 160, 0.7);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+.bottom-bar a:hover,
+.bottom-bar a:focus {
+    background: linear-gradient(45deg, #fafad2, #f9f9b7);
+    box-shadow: 0 6px 22px rgba(200, 190, 160, 0.9);
+    transform: translateY(-3px);
+}
+
+.bottom-bar a:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(200, 190, 160, 0.6);
+}
 
 .top-bar {
     background-color: #f0f0f0;
@@ -109,7 +142,6 @@ body {
 
 .content-wrapper {
     background-color: #f5f5dc; /* бежевый цвет */
-                 /* отступы по желанию */
 }
 
 .header-image {
@@ -131,10 +163,6 @@ h1 {
 </style>
 </head>
 <body>
-
-<div class="top-bar">
-    <a href="../template.html">Назад</a>
-</div>
 
 <div class="content-wrapper">
   <img src="street_logo.png" alt="Улица полна неожиданностей (1958)" class="header-image" />
@@ -183,7 +211,7 @@ h1 {
 </div>
 
 <div class="bottom-bar">
-        2025 Кадры Времени
+        <a href="../index.html">2025 Кадры Времени</a>
     </div>
 
 <script>
