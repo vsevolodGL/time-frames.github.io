@@ -17,7 +17,6 @@ body {
 }
 
 .bottom-bar {
-            margin-top: 20px;
             background-color: #333;
             color: white;
             text-align: center;
@@ -29,7 +28,6 @@ body {
     padding: 10px;
     text-align: center;
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .main-content {
@@ -44,11 +42,18 @@ body {
 }
 
 .right-column {
-  width: 40%; /* Занимает 40% ширины */
-  padding: 20px;
+  width: 40%;
+  padding: 40px;
   box-sizing: border-box;
-  background-color: #f9f9f9;
-  margin-bottom: 20px;
+  background-color: #f4f4d2;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 20px 20px 20px 0;
+
+  font-family: 'Pacifico', cursive;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #5a3e2b;
 }
 
 .container {
@@ -57,7 +62,9 @@ body {
   max-width: 960px; /* Ограничиваем максимальную ширину контейнера */
   height: 540px; /* Фиксированная высота для корректной работы разделителя */
   margin-bottom: 20px;
+  margin-top: 50px;
   overflow: hidden; /* Обрезаем выходящее за границы */
+  border-radius: 20px; /* Радиус скругления углов, можно менять */
 }
 
 .image1, .image2 {
@@ -100,6 +107,18 @@ body {
   line-height: 400px;
 }
 
+.content-wrapper {
+    background-color: #f5f5dc; /* бежевый цвет */
+                 /* отступы по желанию */
+}
+
+.header-image {
+  width: 100%;
+  height: auto;
+  max-height: 350px; /* максимальная высота */
+  display: block;
+}
+
 iframe {
   display: block;
   margin: 0 auto
@@ -114,12 +133,13 @@ h1 {
 <body>
 
 <div class="top-bar">
-    <a href="../index.html">Назад</a>
+    <a href="../template.html">Назад</a>
 </div>
 
-<h1>Улица полна неожиданностей (1958)</h1>
+<div class="content-wrapper">
+  <img src="street_logo.png" alt="Улица полна неожиданностей (1958)" class="header-image" />
 
-<div class="main-content">
+  <div class="main-content">
 
   <div class="left-column">
     <div class="container" id="container1">
@@ -140,20 +160,27 @@ h1 {
   </div>
 
   <div class="right-column">
-    <h2>Улица полна неожиданностей (1958)</h2>
-    <p>Описание фильма:  ...</p>  <!-- Замените на описание фильма -->
-    <p>Режиссер: ...</p> <!-- Замените на информацию о режиссере -->
-    <p>В ролях: ...</p> <!-- Замените на список актеров -->
+    <h2>Улица полна неожиданностей</h2>
+    <p>Возвращающийся навеселе главбух Смирнов забирается в будку регулировщика и нарушает движение транспорта на одной из улиц Ленинграда. Но постовой Вася Шанешкин доставляет в отделение милиции не нарушителя, а вполне порядочного гражданина - кассира Стройтреста Воднева, который, ко всему прочему, оказывается отцом его любимой девушки Кати.</p>  <!-- Замените на описание фильма -->
+    <p>Вася признает свою вину, но не решается извиниться - и оставляет обиженного наедине с плохими мыслями о советской милиции. Однако молодому сержанту вскоре представится возможность защитить кассира от нападения - и герой выполнит свой долг...</p>
+    <p>Год производства: 1958</p> <!-- Замените на информацию о режиссере -->
+    <p>Жанр: комедия</p> <!-- Замените на список актеров -->
+    <p>Режиссёр: Сергей Сиделев</p> <!-- Замените на информацию о режиссере -->
+    <p>В главных ролях: Леонид Харитонов, Всеволод Ларионов, Джемма Осмоловская</p> <!-- Замените на список актеров -->
+    <p>Рейтинг кинопоиска: 7.8</p> <!-- Замените на информацию о режиссере -->
     <!-- Добавьте любую другую информацию о фильме -->
+    <section class="section-map">
+      <h3 class="section-map__title">Карта фильма</h3>
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7eb72c3b9d502ab9fde12b7c31ffb35219640207daa0de499a00cd6305d7623a&amp;source=constructor"
+          width="600" height="500" frameborder="0"></iframe>
+    </section>
   </div>
 
 </div>
 
-<section class="section-map">
-  <h3 class="section-map__title">Карта фильма «Улица полна неожиданностей»</h3>
-  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7eb72c3b9d502ab9fde12b7c31ffb35219640207daa0de499a00cd6305d7623a&amp;source=constructor"
-          width="1000" height="500" frameborder="0"></iframe>
-</section>
+
+
+</div>
 
 <div class="bottom-bar">
         2025 Кадры Времени
