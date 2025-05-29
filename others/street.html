@@ -6,13 +6,24 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Верхняя полоска */
+.top-bar {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: left;
+}
+
+.bottom-bar {
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
 .top-bar {
     background-color: #f0f0f0;
     padding: 10px;
@@ -21,92 +32,132 @@ body {
     margin-bottom: 20px;
 }
 
-.top-bar a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    width: 100px;
-    margin: 0 auto;
+.main-content {
+  display: flex;
+  height: auto; /* Подстраивается под контент */
+}
+
+.left-column {
+  width: 60%; /* Занимает 60% ширины */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.right-column {
+  width: 40%; /* Занимает 40% ширины */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
 }
 
 .container {
   position: relative;
-  width: 800px; /* или любая другая ширина */
-  height: 400px; /* или любая другая высота */
-  overflow: hidden;
-  background-color: #fff;
+  width: 100%;
+  max-width: 960px; /* Ограничиваем максимальную ширину контейнера */
+  height: 540px; /* Фиксированная высота для корректной работы разделителя */
+  margin-bottom: 20px;
+  overflow: hidden; /* Обрезаем выходящее за границы */
 }
 
 .image1, .image2 {
   position: absolute;
   top: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.small-light {
-    font-size: 1rem;        /* уменьшенный размер шрифта */
-    font-weight: 300;       /* нежирный (light) */
-    font-family: Arial, sans-serif; /* или любой другой шрифт */
-}
-
-.image1 {
   left: 0;
-  clip-path: inset(0 100% 0 0);
-}
-
-.image2 {
-  right: 0;
-  clip-path: inset(0 0 0 0);
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Важно для корректного отображения изображений */
 }
 
 .separator {
   position: absolute;
   top: 0;
-  bottom: 0;
-  left: 50%;
   width: 5px;
-  background-color: #ddd;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   cursor: ew-resize;
-  z-index: 2;
-  user-select: none;
+  z-index: 10;
+}
+
+.small-light {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.section-map__title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 36px;
+}
+
+#map-container {
+  width: 80%; /* Занимает 80% ширины */
+  margin: 20px auto; /* Центрирование по горизонтали */
+  height: 400px; /* Задайте нужную высоту карты */
+  background-color: #eee; /* Замените на вашу карту */
+  text-align: center;
+  line-height: 400px;
+}
+
+iframe {
+  display: block;
+  margin: 0 auto
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
 }
 
-/* Добавляем отступ между контейнерами */
-.container:not(:last-child) {
-  margin-upper: 40px;
-}
 </style>
 </head>
 <body>
 
 <div class="top-bar">
-    <a href="../index.html">Назад</a>
+    <a href="../template.html">Назад</a>
 </div>
 
 <h1>Улица полна неожиданностей (1958)</h1>
 
-<div class="container" id="container1">
-  <img src="13-Old.png" alt="Image 1" class="image1">
-  <img src="13-New.png" alt="Image 2" class="image2">
-  <div class="separator" id="separator1"></div>
+<div class="main-content">
+
+  <div class="left-column">
+    <div class="container" id="container1">
+      <img src="13-Old.png" alt="Image 1" class="image1">
+      <img src="13-New.png" alt="Image 2" class="image2">
+      <div class="separator" id="separator1"></div>
+    </div>
+
+    <h1 class="small-light"></h1>
+
+    <div class="container" id="container2">
+      <img src="06-Old.png" alt="Image 1" class="image1">
+      <img src="06-New.png" alt="Image 2" class="image2">
+      <div class="separator" id="separator2"></div>
+    </div>
+
+    <h1 class="small-light"></h1>
+  </div>
+
+  <div class="right-column">
+    <h2>Улица полна неожиданностей (1958)</h2>
+    <p>Описание фильма:  ...</p>  <!-- Замените на описание фильма -->
+    <p>Режиссер: ...</p> <!-- Замените на информацию о режиссере -->
+    <p>В ролях: ...</p> <!-- Замените на список актеров -->
+    <!-- Добавьте любую другую информацию о фильме -->
+  </div>
+
 </div>
 
-<h1 class="small-light">Строка 1</h1>
+<section class="section-map">
+  <h3 class="section-map__title">Карта фильма «Улица полна неожиданностей»</h3>
+  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7eb72c3b9d502ab9fde12b7c31ffb35219640207daa0de499a00cd6305d7623a&amp;source=constructor"
+          width="1000" height="500" frameborder="0"></iframe>
+</section>
 
-<div class="container" id="container2">
-  <img src="06-Old.png" alt="Image 1" class="image1">
-  <img src="06-New.png" alt="Image 2" class="image2">
-  <div class="separator" id="separator2"></div>
-</div>
-
-<h1 class="small-light">Строка 2</h1>
+<div class="bottom-bar">
+        2025 Кадры Времени
+    </div>
 
 <script>
 function makeImageSeparator(containerId, separatorId) {
@@ -155,5 +206,6 @@ function makeImageSeparator(containerId, separatorId) {
 makeImageSeparator('container1', 'separator1');
 makeImageSeparator('container2', 'separator2');
 </script>
+
 </body>
 </html>
